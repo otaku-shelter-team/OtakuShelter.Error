@@ -13,6 +13,7 @@ namespace OtakuShelter.Error
 
 		public ErrorRoleConfiguration Roles { get; set; }
 		public ErrorContextConfiguration Database { get; set; }
+		public ErrorRabbitMqConfiguration RabbitMq { get; set; }
 
 		public SymmetricSecurityKey SymmetricSecurityKey => new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret));
 	}

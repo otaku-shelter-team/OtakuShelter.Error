@@ -5,7 +5,7 @@ using Phema.Routing;
 
 namespace OtakuShelter.Error
 {
-	public static class AccountMvcServices
+	public static class ErrorMvcServices
 	{
 		public static IServiceCollection AddMvcServices(
 			this IServiceCollection services,
