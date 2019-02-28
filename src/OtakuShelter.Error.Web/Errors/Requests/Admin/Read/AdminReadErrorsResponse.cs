@@ -17,6 +17,11 @@ namespace OtakuShelter.Error
 		{
 			var errors = context.Errors.AsNoTracking();
 
+			if (filter.TraceId != null)
+			{
+				errors = errors.Where(e => e.TraceId == filter.TraceId);
+			}
+			
 			if (filter.Project != null)
 			{
 				errors = errors.Where(e => e.Project == filter.Project);
