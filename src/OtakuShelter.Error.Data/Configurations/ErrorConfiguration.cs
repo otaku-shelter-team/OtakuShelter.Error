@@ -12,14 +12,6 @@ namespace OtakuShelter.Error.Configurations
 			builder.Property(e => e.Id)
 				.HasColumnName("id")
 				.UseNpgsqlIdentityColumn();
-
-			builder.Property(e => e.TraceId)
-				.HasColumnName("trace_id")
-				.IsRequired();
-
-			builder.HasIndex(e => e.TraceId)
-				.IsUnique()
-				.HasName("UI_trace_id");
 			
 			builder.Property(e => e.Project)
 				.HasColumnName("project")
@@ -35,6 +27,10 @@ namespace OtakuShelter.Error.Configurations
 				.HasColumnName("message")
 				.IsRequired();
 
+			builder.HasIndex(e => new {e.Project, e.Type, e.Message})
+				.IsUnique()
+				.HasName("UI_project_type_message");
+
 			builder.Property(e => e.StackTrace)
 				.HasColumnName("stack_trace")
 				.IsRequired();
@@ -42,6 +38,9 @@ namespace OtakuShelter.Error.Configurations
 			builder.Property(e => e.Created)
 				.HasColumnName("created")
 				.IsRequired();
+
+			builder.Property(e => e.Updated)
+				.HasColumnName("updated");
 		}
 	}
 }

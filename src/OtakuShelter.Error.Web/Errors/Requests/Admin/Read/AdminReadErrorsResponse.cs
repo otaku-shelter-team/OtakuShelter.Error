@@ -19,7 +19,9 @@ namespace OtakuShelter.Error
 
 			if (filter.TraceId != null)
 			{
-				errors = errors.Where(e => e.TraceId == filter.TraceId);
+				var traceId = await context.TraceIds.FirstAsync(t => t.Id == filter.TraceId);
+				
+				errors = errors.Where(e => e.Id == traceId.ErrorId);
 			}
 			
 			if (filter.Project != null)
@@ -46,7 +48,8 @@ namespace OtakuShelter.Error
 				.OrderByDescending(e => e.Created)
 				.Skip(filter.Offset)
 				.Take(filter.Limit)
-				.Select(error => new ReadErrorsRequestItem(error))
+				.Select(error => new { Error = error, Count = error.TraceIds.Count})
+				.Select(result => new ReadErrorsRequestItem(result.Error, result.Count))
 				.ToListAsync();
 		}
 	}

@@ -6,14 +6,16 @@ namespace OtakuShelter.Error
 	[DataContract]
 	public class ReadErrorsRequestItem
 	{
-		public ReadErrorsRequestItem(Error error)
+		public ReadErrorsRequestItem(Error error, int count)
 		{
 			Id = error.Id;
 			Project = error.Project;
 			Type = error.Type;
+			Count = count;
 			Message = error.Message;
 			StackTrace = error.StackTrace;
 			Created = error.Created;
+			Updated = error.Updated;
 		}
 		
 		[DataMember(Name = "id")]
@@ -25,6 +27,9 @@ namespace OtakuShelter.Error
 		[DataMember(Name = "type")]
 		public string Type { get; set; }
 		
+		[DataMember(Name = "count")]
+		public int Count { get; set; }
+		
 		[DataMember(Name = "message")]
 		public string Message { get; set; }
 		
@@ -33,5 +38,8 @@ namespace OtakuShelter.Error
 		
 		[DataMember(Name = "created")]
 		public DateTime Created { get; set; }
+
+		[DataMember(Name = "updated")]
+		public DateTime? Updated { get; set; }
 	}
 }

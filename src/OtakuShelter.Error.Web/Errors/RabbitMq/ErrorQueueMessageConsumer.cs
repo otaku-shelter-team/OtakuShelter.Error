@@ -1,4 +1,10 @@
+using System.Linq;
 using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
+
+using Npgsql;
+
 using Phema.RabbitMq;
 
 namespace OtakuShelter.Error
@@ -14,18 +20,38 @@ namespace OtakuShelter.Error
 		
 		public async ValueTask Consume(ErrorQueueMessage payload)
 		{
-			var error = new Error
+			var error = await context.Errors.FirstOrDefaultAsync(e =>
+				e.Project == payload.Project
+				&& e.Type == payload.Type
+				&& e.Message == payload.Message
+				&& e.StackTrace == payload.StackTrace);
+			
+			if (error == null)
 			{
-				TraceId = payload.TraceId,
-				Project = payload.Project,
-				Type = payload.Type,
-				Message = payload.Message,
-				StackTrace = payload.StackTrace,
-				Created = payload.Created
+				error = new Error
+				{
+					Project = payload.Project,
+					Type = payload.Type,
+					Message = payload.Message,
+					StackTrace = payload.StackTrace,
+					Created = payload.Created
+				};
+
+				await context.Errors.AddAsync(error);
+			}
+			else
+			{
+				error.Updated = payload.Created;
+			}
+			
+			var traceId = new TraceId
+			{
+				Id = payload.TraceId,
+				Error = error
 			};
 
-			await context.Errors.AddAsync(error);
-
+			await context.TraceIds.AddAsync(traceId);
+			
 			await context.SaveChangesAsync();
 		}
 	}

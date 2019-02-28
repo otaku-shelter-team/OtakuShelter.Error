@@ -11,10 +11,12 @@ namespace OtakuShelter.Error
 		}
 
 		public DbSet<Error> Errors { get; set; }
+		public DbSet<TraceId> TraceIds { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.ApplyConfiguration(new ErrorConfiguration());
+			modelBuilder.ApplyConfiguration(new TraceIdConfiguration());
 		}
 	}
 }
