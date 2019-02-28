@@ -1,0 +1,14 @@
+database:
+  host: database.otaku-shelter.ru
+  port: 5432
+  database: error
+  userid: error
+  migrationstable: migrations
+
+roles:
+  admin: admin
+  user: user
+
+issuer: account.otaku-shelter.ru
+audience: otaku-shelter.ru
+maxtokenscount: 10
