@@ -10,7 +10,7 @@ rabbitmq:
   username: otakushelter
   port: 5672
   virtualhost: /
-  hostname: database.otaku-shelter.ru
+  hostname: rabbitmq.otaku-shelter.ru
 
 roles:
   admin: admin
