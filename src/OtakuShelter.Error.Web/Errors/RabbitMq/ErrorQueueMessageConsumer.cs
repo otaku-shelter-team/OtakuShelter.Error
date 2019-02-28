@@ -16,6 +16,7 @@ namespace OtakuShelter.Error
 		{
 			var error = new Error
 			{
+				TraceId = payload.TraceId,
 				Project = payload.Project,
 				Type = payload.Type,
 				Message = payload.Message,

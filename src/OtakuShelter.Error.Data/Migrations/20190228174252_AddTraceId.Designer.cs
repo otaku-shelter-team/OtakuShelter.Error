@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using OtakuShelter.Error;
@@ -9,9 +10,10 @@ using OtakuShelter.Error;
 namespace OtakuShelter.Error.Migrations
 {
     [DbContext(typeof(ErrorContext))]
-    partial class ErrorContextModelSnapshot : ModelSnapshot
+    [Migration("20190228174252_AddTraceId")]
+    partial class AddTraceId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

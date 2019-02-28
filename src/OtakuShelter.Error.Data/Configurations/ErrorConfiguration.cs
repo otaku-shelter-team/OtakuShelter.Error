@@ -13,6 +13,14 @@ namespace OtakuShelter.Error.Configurations
 				.HasColumnName("id")
 				.UseNpgsqlIdentityColumn();
 
+			builder.Property(e => e.TraceId)
+				.HasColumnName("trace_id")
+				.IsRequired();
+
+			builder.HasIndex(e => e.TraceId)
+				.IsUnique()
+				.HasName("UI_trace_id");
+			
 			builder.Property(e => e.Project)
 				.HasColumnName("project")
 				.HasMaxLength(25)

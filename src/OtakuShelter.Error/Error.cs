@@ -5,6 +5,7 @@ namespace OtakuShelter.Error
 	public class Error
 	{
 		public int Id { get; set; }
+		public string TraceId { get; set; }
 		public string Project { get; set; }
 		public string Type { get; set; }
 		public string Message { get; set; }
