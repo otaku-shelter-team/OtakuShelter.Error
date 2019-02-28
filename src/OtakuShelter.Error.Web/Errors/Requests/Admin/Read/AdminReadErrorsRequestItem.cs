@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 namespace OtakuShelter.Error
 {
 	[DataContract]
-	public class ReadErrorsRequestItem
+	public class AdminReadErrorsRequestItem
 	{
-		public ReadErrorsRequestItem(Error error, int count)
+		public AdminReadErrorsRequestItem(Error error, int count)
 		{
 			Id = error.Id;
 			Project = error.Project;

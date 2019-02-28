@@ -11,7 +11,7 @@ namespace OtakuShelter.Error
 	public class AdminReadErrorsResponse
 	{
 		[DataMember(Name = "errors")]
-		public ICollection<ReadErrorsRequestItem> Errors { get; set; }
+		public ICollection<AdminReadErrorsRequestItem> Errors { get; set; }
 
 		public async ValueTask Read(ErrorContext context, ErrorFilterRequest filter)
 		{
@@ -19,9 +19,12 @@ namespace OtakuShelter.Error
 
 			if (filter.TraceId != null)
 			{
-				var traceId = await context.TraceIds.FirstAsync(t => t.Id == filter.TraceId);
-				
-				errors = errors.Where(e => e.Id == traceId.ErrorId);
+				var traceId = await context.TraceIds.FirstOrDefaultAsync(t => t.Id == filter.TraceId);
+
+				if (traceId != null)
+				{
+					errors = errors.Where(e => e.Id == traceId.ErrorId);
+				}
 			}
 			
 			if (filter.Project != null)
@@ -49,7 +52,7 @@ namespace OtakuShelter.Error
 				.Skip(filter.Offset)
 				.Take(filter.Limit)
 				.Select(error => new { Error = error, Count = error.TraceIds.Count})
-				.Select(result => new ReadErrorsRequestItem(result.Error, result.Count))
+				.Select(result => new AdminReadErrorsRequestItem(result.Error, result.Count))
 				.ToListAsync();
 		}
 	}
