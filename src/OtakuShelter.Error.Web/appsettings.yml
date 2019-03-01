@@ -7,7 +7,7 @@ database:
 
 rabbitmq:
   instancename: errors
-  username: otakushelter
+  username: error
   port: 5672
   virtualhost: /
   hostname: rabbitmq.otaku-shelter.ru
