@@ -38,9 +38,6 @@ namespace OtakuShelter.Error.Configurations
 			builder.Property(e => e.Created)
 				.HasColumnName("created")
 				.IsRequired();
-
-			builder.Property(e => e.Updated)
-				.HasColumnName("updated");
 		}
 	}
 }

@@ -39,14 +39,11 @@ namespace OtakuShelter.Error
 
 				await context.Errors.AddAsync(error);
 			}
-			else
-			{
-				error.Updated = payload.Created;
-			}
 			
 			var traceId = new TraceId
 			{
 				Id = payload.TraceId,
+				Created = payload.Created,
 				Error = error
 			};
 

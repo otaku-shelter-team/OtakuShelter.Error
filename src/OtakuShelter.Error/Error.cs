@@ -11,7 +11,6 @@ namespace OtakuShelter.Error
 		public string Message { get; set; }
 		public string StackTrace { get; set; }
 		public DateTime Created { get; set; }
-		public DateTime? Updated { get; set; }
 
 		public ICollection<TraceId> TraceIds { get; set; }
 	}

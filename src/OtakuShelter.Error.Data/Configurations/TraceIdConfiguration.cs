@@ -13,6 +13,10 @@ namespace OtakuShelter.Error
 				.HasColumnName("id")
 				.IsRequired();
 
+			builder.Property(t => t.Created)
+				.HasColumnName("created")
+				.IsRequired();
+
 			builder.Property(t => t.ErrorId)
 				.HasColumnName("error_id")
 				.IsRequired();

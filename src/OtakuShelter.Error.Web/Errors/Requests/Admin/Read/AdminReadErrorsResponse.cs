@@ -43,11 +43,11 @@ namespace OtakuShelter.Error
 			}
 
 			Errors = await errors
+				.Include(e => e.TraceIds)
 				.OrderByDescending(e => e.Created)
 				.Skip(filter.Offset)
 				.Take(filter.Limit)
-				.Select(error => new { Error = error, Count = error.TraceIds.Count})
-				.Select(result => new AdminReadErrorsResponseItem(result.Error, result.Count))
+				.Select(error => new AdminReadErrorsResponseItem(error))
 				.ToListAsync();
 		}
 	}

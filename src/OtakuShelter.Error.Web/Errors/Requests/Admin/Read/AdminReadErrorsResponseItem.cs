@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Runtime.Serialization;
 
 namespace OtakuShelter.Error
@@ -6,16 +7,19 @@ namespace OtakuShelter.Error
 	[DataContract]
 	public class AdminReadErrorsResponseItem
 	{
-		public AdminReadErrorsResponseItem(Error error, int count)
+		public AdminReadErrorsResponseItem(Error error)
 		{
 			Id = error.Id;
 			Project = error.Project;
 			Type = error.Type;
-			Count = count;
+			Count = error.TraceIds.Count;
 			Message = error.Message;
 			StackTrace = error.StackTrace;
 			Created = error.Created;
-			Updated = error.Updated;
+			Updated = error.TraceIds
+				.OrderByDescending(t => t.Created)
+				.Select(t => t.Created)
+				.First();
 		}
 		
 		[DataMember(Name = "id")]
