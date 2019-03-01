@@ -1,3 +1,5 @@
+using System;
+
 using Microsoft.Extensions.DependencyInjection;
 using Phema.RabbitMq;
 using Phema.Serialization;

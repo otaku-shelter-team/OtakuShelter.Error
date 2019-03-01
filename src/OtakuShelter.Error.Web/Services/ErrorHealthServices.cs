@@ -6,11 +6,12 @@ namespace OtakuShelter.Error
 	{
 		public static IServiceCollection AddHealthServices(
 			this IServiceCollection services,
-			ErrorContextConfiguration database)
+			ErrorContextConfiguration database,
+			ErrorRabbitMqConfiguration rabbitMq)
 		{
 			services.AddHealthChecks()
-				.AddNpgSql(database.ConnectionString);
-				//.AddRabbitMQ();
+				.AddNpgSql(database.ConnectionString)
+				.AddRabbitMQ(rabbitMq.ConnectionString);
 			
 			return services;
 		}
