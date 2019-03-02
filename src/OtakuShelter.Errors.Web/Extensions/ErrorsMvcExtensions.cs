@@ -16,7 +16,8 @@ namespace OtakuShelter.Errors
 				.AddAuthorization(options =>
 					options.AddPolicy("admin", builder => builder.RequireRole(roles.Admin)))
 				.AddApiExplorer()
-				.AddPhemaRouting(routing => routing.AddErrorsController(roles))
+				.AddPhemaRouting(routing => routing.AddErrorsController(roles)
+					.AddVersionController())
 				.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
 			return services;

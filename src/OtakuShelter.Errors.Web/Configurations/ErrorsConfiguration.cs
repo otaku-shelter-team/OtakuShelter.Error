@@ -3,6 +3,7 @@ namespace OtakuShelter.Errors
 	public class ErrorsConfiguration
 	{
 		public string Name { get; set; }
+		public string Version { get; set; }
 		
 		public ErrorsDatabaseConfiguration Database { get; set; }
 		public ErrorsJwtConfiguration Jwt { get; set; }

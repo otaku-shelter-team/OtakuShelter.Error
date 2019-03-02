@@ -11,6 +11,7 @@
     <PackageReference Include="AspNetCore.HealthChecks" Version="1.0.0" />
     <PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="2.2.0" />
     <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="2.2.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
@@ -22,7 +23,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
-    <PackageReference Include="Phema.Configuration" Version="2.0.0" />
     <PackageReference Include="Phema.ExceptionHandling" Version="2.0.0" />
     <PackageReference Include="Phema.RabbitMq.Consumers" Version="2.0.6" />
     <PackageReference Include="Phema.RabbitMq.Producers" Version="2.0.6" />

@@ -34,7 +34,7 @@ namespace OtakuShelter.Errors
 		{
 			app.EnsureDatabaseMigrated();
 			
-			app.UseHealthChecks("/health");
+			app.UseErrorsHealthchecks();
 			app.UseAuthentication();
 			app.UseErrorsSwagger();
 			app.UseMvc();
