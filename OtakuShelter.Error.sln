@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4B95A1AD-20A5-4FA6-B548-2857F636F0F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Error", "src\OtakuShelter.Error\OtakuShelter.Error.csproj", "{5FF881AB-B700-4438-B96D-229F8ECD45A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Errors", "src\OtakuShelter.Errors\OtakuShelter.Errors.csproj", "{5FF881AB-B700-4438-B96D-229F8ECD45A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Error.Data", "src\OtakuShelter.Error.Data\OtakuShelter.Error.Data.csproj", "{AEF7E016-63AF-44FD-BB43-0805CE2B56D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Errors.Data", "src\OtakuShelter.Errors.Data\OtakuShelter.Errors.Data.csproj", "{AEF7E016-63AF-44FD-BB43-0805CE2B56D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Error.Web", "src\OtakuShelter.Error.Web\OtakuShelter.Error.Web.csproj", "{210B4B91-B698-448A-9CCB-A995A94B2802}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtakuShelter.Errors.Web", "src\OtakuShelter.Errors.Web\OtakuShelter.Errors.Web.csproj", "{210B4B91-B698-448A-9CCB-A995A94B2802}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

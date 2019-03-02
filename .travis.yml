@@ -11,7 +11,7 @@ addons:
     - sshpass
     
 script:
-- docker build -t otakushelter/errors:1.0.${TRAVIS_BUILD_NUMBER} -f src/OtakuShelter.Error.Web/Dockerfile .
+- docker build -t otakushelter/errors:1.0.${TRAVIS_BUILD_NUMBER} -f src/OtakuShelter.Errors.Web/Dockerfile .
 - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
 - docker push otakushelter/errors:1.0.$TRAVIS_BUILD_NUMBER
 - |
@@ -22,9 +22,9 @@ script:
     otakushelter_hosts=errors \
     otakushelter_port=4006 \
     otakushelter_image=otakushelter/errors \
-    otakushelter_server_name=error.otaku-shelter.ru \
+    otakushelter_server_name=errors.staging..otaku-shelter.ru \
     otakushelter_build_number=$TRAVIS_BUILD_NUMBER \
     otakushelter_database_password=$OTAKUSHELTER_DATABASE_PASSWORD \
     otakushelter_rabbitmq_password=$OTAKUSHELTER_RABBITMQ_PASSWORD \
-    otakushelter_secret=$OTAKUSHELTER_SECRET\" \
+    otakushelter_jwt_secret=$OTAKUSHELTER_JWT_SECRET\" \
     -i inventories/staging"
